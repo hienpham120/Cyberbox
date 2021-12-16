@@ -1,0 +1,257 @@
+// =========================================
+// CSS MAIN COMPONENT
+// =========================================
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    padding: 10px 0;
+    background-color: $dark-60;
+    z-index: 300;
+    transition: 0.3s;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &--nav {
+            display: flex;
+            color: $light;
+            transition: 0.3s;
+
+            font-size: $fs-14;
+            text-transform: uppercase;
+            font-family: $main-font-bold;
+
+            & > a {
+                display: block;
+                padding: 10px;
+                color: $light;
+                transition: 0.2s;
+
+                &:hover {
+                    color: $orange-2;
+                }
+
+                @include responsive(992) {
+                    padding: 1.5rem 0;
+                    margin-bottom: 1rem;
+                }
+            }
+
+            /* custom button close menu on mobile */
+            span {
+                display: none;
+
+                @include responsive(992) {
+                    position: fixed;
+                    top: 3rem;
+                    right: 3rem;
+                    z-index: 3;
+
+                    display: block;
+                    font-size: $fs-30;
+                    cursor: pointer;
+                }
+            }
+
+            /* custom button signin & signup & logout on mobile*/
+            & > div {
+                display: none;
+
+                a,
+                button {
+                    padding: 1rem;
+                    border: 2px solid $light;
+                    border-radius: 5px;
+                    min-width: 150px;
+                    color: $light !important;
+
+                    @include responsive(768) {
+                        max-width: 150px;
+                        margin-bottom: 2.5rem;
+                    }
+                }
+
+                @include responsive(992) {
+                    display: flex;
+                    justify-content: space-evenly;
+                    padding-top: 2rem;
+                    margin-top: 2rem;
+                }
+
+                @include responsive(768) {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+
+            @include responsive(992) {
+                display: none;
+            }
+
+            @include responsive(576) {
+                width: 100%;
+            }
+        }
+
+        .nav-activeOnMobile {
+            @include responsive(992) {
+                transform: translateX(0%);
+                opacity: 1;
+                pointer-events: all;
+                visibility: visible;
+            }
+        }
+    }
+}
+
+.header-onScroll {
+    padding: 5px 0;
+}
+
+// =========================================
+// CSS NAVBATMENU
+// =========================================
+.navbarMobile {
+    /** Custom layout drawer antD*/
+    .ant-drawer-content-wrapper {
+        width: 50% !important;
+        font-size: $fs-18;
+        text-align: center;
+
+        box-shadow: -2px 0 15px $dark-30;
+        color: $light;
+        background: linear-gradient(to top, $orange-1, $orange-3) !important;
+
+        .ant-drawer-content {
+            // background: transparent !important;
+            background: linear-gradient(to top, $orange-1, $orange-3) !important;
+        }
+
+        .ant-drawer-header {
+            background: transparent !important;
+            .ant-drawer-title {
+                display: none;
+            }
+
+            button {
+                color: $light;
+            }
+        }
+
+        @include responsive(576) {
+            width: 100% !important;
+        }
+    }
+
+    /** Own Css */
+    .navbarMobile__inner {
+        .userInfo {
+            position: relative;
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            width: 80%;
+            padding: 2rem 0;
+            margin: 0 auto 3rem;
+
+            color: $dark;
+            background-color: $light;
+            border-radius: 10px;
+
+            p {
+                margin: 0;
+                font-size: $fs-18;
+                font-family: $main-font-bold;
+                text-transform: capitalize;
+            }
+
+            .avatar {
+                position: relative;
+                width: 4.1rem;
+                height: 4.1rem;
+                margin: 0 0rem 0 1.5rem;
+
+                border-radius: 50%;
+                z-index: 1;
+
+                & > img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    -webkit-object-fit: cover;
+                    border-radius: inherit;
+                }
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+
+                    background-image: linear-gradient(to right, $orange-1, $orange-3);
+                    border-radius: inherit;
+                    transform: scale(1.1);
+                    z-index: -1;
+                }
+            }
+
+            @include responsive(992) {
+                display: flex;
+            }
+
+            @include responsive(768) {
+                flex-direction: row;
+            }
+        }
+        a {
+            display: block;
+            padding: 2rem 0;
+            text-transform: uppercase;
+            color: $light;
+            transition: 0.2s;
+
+            &:hover {
+                color: $orange-2;
+            }
+        }
+
+        .navbarMobile-btn {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-content: center;
+            margin-top: 2rem;
+            
+            a,button {
+                display: block;
+                margin-bottom: 1.5rem;
+                padding: 1rem 2rem;
+                
+                border: 1px solid $light;
+                border-radius: 8px;
+                text-transform: uppercase;
+            }
+        }
+
+        .nav-active {
+            color: $orange-2;
+        }
+    }
+}
+
+.navbarMobile--toggle {
+    display: none !important;
+    font-size: $fs-24;
+    color: $light !important;
+
+    @include responsive(992) {
+        display: block !important;
+    }
+}

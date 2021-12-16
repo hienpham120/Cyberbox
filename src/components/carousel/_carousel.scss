@@ -1,0 +1,111 @@
+.mainvisual {
+    position: relative;
+
+    /* Background-gradient for carousel */
+    &__wrapper {
+        .mainvisual__inner {
+            position: relative;
+            padding: 32rem 0;
+            width: 100%;
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            .mainvisual__content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+
+                width: 100%;
+                margin: 0 4rem;
+                max-width: 1280px;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+
+                .heading {
+                    margin-bottom: 1rem;
+                    font-size: $fs-40;
+                    font-family: $second-font-bold;
+                    text-transform: uppercase;
+                    color: $light;
+
+                    @include responsive(768) {
+                        font-size: $fs-30;
+                    }
+                }
+
+                .desc {
+                    width: 50%;
+                    margin-bottom: 2rem;
+                    color: $light;
+
+                    font-size: $fs-14;
+                    line-height: 1.6;
+                    letter-spacing: 0.5px;
+
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+
+                    @include responsive(992) {
+                        width: 70%;
+                    }
+
+                    @include responsive(768) {
+                        font-size: $fs-12;
+                    }
+                }
+
+                @include responsive(992) {
+                    max-width: 942px;
+                    margin: 0 2.5rem;
+                }
+            }
+
+            &::after {
+                content: "";
+                display: block;
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0));
+            }
+
+            @include responsive(768) {
+                padding: 22rem 0;
+            }
+        }
+    }
+
+    /* Custom slick-dots */
+    .slick-dots {
+        bottom: 1rem;
+        left: 50%;
+
+        max-width: 1280px;
+        width: 100%;
+        transform: translate(-50%, -50%);
+
+        li {
+            margin: 0 1.3rem;
+            button::before {
+                font-size: $fs-16;
+                opacity: 0.8;
+                color: $light;
+            }
+        }
+
+        li.slick-active button::before {
+            color: $orange-2;
+            opacity: 1;
+        }
+    }
+}
