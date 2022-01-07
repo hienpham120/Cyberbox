@@ -190,7 +190,7 @@ function SliderMobileScreen() {
   };
   return (
     <Slider {...settings} className="homeApp-slider">
-      <div>
+      {/* <div>
         <img
           src="https://tix.vn/app/assets/img/icons/slide/slide2.jpg"
           alt="slider-in-screen-mobile"
@@ -237,7 +237,7 @@ function SliderMobileScreen() {
           src="https://tix.vn/app/assets/img/icons/slide/slide10.jpg"
           alt="slider-in-screen-mobile"
         />
-      </div>
+      </div> */}
     </Slider>
   );
 }
@@ -509,13 +509,6 @@ export default function (props) {
               CYBERBOX có hai phiên bản <a href="#">iOS</a> và{" "}
               <a href="#">Android</a>
             </p>
-          </div>
-          <div className="homeApp__wrapper-right">
-            <img
-              src="https://tix.vn/app/assets/img/icons/mobile.png"
-              alt="slider-in-screen-mobile"
-            />
-            <SliderMobileScreen />
           </div>
         </div>
       </section>
